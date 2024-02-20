@@ -2,7 +2,7 @@
 
 Authors: Dr. Davide Batic (KU) and Dr. Denys Dutykh (KU)
 
-Programming languages: Maple and Matlab
+Programming languages: Maple (TM) and Matlab (TM)
 
 This repository contains the computational supplemental materials for the following scientific paper:
 
