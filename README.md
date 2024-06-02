@@ -10,3 +10,5 @@ This repository contains the computational supplemental materials for the follow
 
 **Reference**: D. Batic & D. Dutykh. *Quasinormal Modes in Noncommutative Schwarzschild Black Holes: A Spectral
 Analysis*. Submitted, 2024
+
+**NB**: Please acknowledge this work if you use these codes.
