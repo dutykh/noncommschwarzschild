@@ -1,5 +1,15 @@
 # Quasinormal Modes of Noncommutative Schwarzschild Black Holes
 
+[![Eur. Phys. J. C](https://img.shields.io/badge/Eur.%20Phys.%20J.%20C-84%20%282024%29%20622-005a9c)](https://link.springer.com/article/10.1140/epjc/s10052-024-12981-6)
+[![DOI](https://img.shields.io/badge/DOI-10.1140%2Fepjc%2Fs10052--024--12981--6-1a7f37)](https://doi.org/10.1140/epjc/s10052-024-12981-6)
+[![arXiv](https://img.shields.io/badge/arXiv-2406.03353-b31b1b)](https://arxiv.org/abs/2406.03353)
+[![License: LGPL v2.1](https://img.shields.io/badge/License-LGPL%20v2.1-4c1)](LICENSE)
+[![Maple](https://img.shields.io/badge/Maple-2022%2B-ff6f00)](https://www.maplesoft.com/products/Maple/)
+[![MATLAB](https://img.shields.io/badge/MATLAB-R2019a%2B-0076a8)](https://www.mathworks.com/products/matlab.html)
+[![QNMs Hall of Fame](https://img.shields.io/badge/QNMs-Hall%20of%20Fame-8a2be2)](https://qnms.denys-dutykh.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-dutykh%2Fnoncommschwarzschild-181717?logo=github)](https://github.com/dutykh/noncommschwarzschild)
+[![Last commit](https://img.shields.io/github/last-commit/dutykh/noncommschwarzschild)](https://github.com/dutykh/noncommschwarzschild/commits/main)
+
 Computational supplementary material for the study of quasinormal modes (QNMs)
 of noncommutative geometry inspired Schwarzschild black holes, computed with a
 Chebyshev collocation (pseudospectral) method coupled to a polynomial eigenvalue
