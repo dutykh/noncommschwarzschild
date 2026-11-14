@@ -1,136 +1,153 @@
-# Quasinormal Modes of Noncommutative Schwarzschild Black Holes
+<!-- Author: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, UAE) -->
 
-[![Eur. Phys. J. C](https://img.shields.io/badge/Eur.%20Phys.%20J.%20C-84%20%282024%29%20622-005a9c)](https://link.springer.com/article/10.1140/epjc/s10052-024-12981-6)
-[![DOI](https://img.shields.io/badge/DOI-10.1140%2Fepjc%2Fs10052--024--12981--6-1a7f37)](https://doi.org/10.1140/epjc/s10052-024-12981-6)
-[![arXiv](https://img.shields.io/badge/arXiv-2406.03353-b31b1b)](https://arxiv.org/abs/2406.03353)
-[![License: LGPL v2.1](https://img.shields.io/badge/License-LGPL%20v2.1-4c1)](LICENSE)
-[![Maple](https://img.shields.io/badge/Maple-2022%2B-ff6f00)](https://www.maplesoft.com/products/Maple/)
-[![MATLAB](https://img.shields.io/badge/MATLAB-R2019a%2B-0076a8)](https://www.mathworks.com/products/matlab.html)
-[![QNMs Hall of Fame](https://img.shields.io/badge/QNMs-Hall%20of%20Fame-8a2be2)](https://qnms.denys-dutykh.com/)
-[![GitHub](https://img.shields.io/badge/GitHub-dutykh%2Fnoncommschwarzschild-181717?logo=github)](https://github.com/dutykh/noncommschwarzschild)
-[![Last commit](https://img.shields.io/github/last-commit/dutykh/noncommschwarzschild)](https://github.com/dutykh/noncommschwarzschild/commits/main)
+# noncommschwarzschild: quasinormal modes of noncommutative geometry-inspired Schwarzschild black holes
 
-Computational supplementary material for the study of quasinormal modes (QNMs)
-of noncommutative geometry inspired Schwarzschild black holes, computed with a
-Chebyshev collocation (pseudospectral) method coupled to a polynomial eigenvalue
-solver.
+![The horizons and the potentials of the noncommutative Schwarzschild black hole](docs/figures/ncs-horizons.png)
 
-## Reference
+Panel (a) shows the function f(x) = 1 − erf(μx)/x + (2μ/√π) e^(−μ²x²) of the black hole against the rescaled radius
+x = r/(2M), for three values of the rescaled mass μ = M/√θ: for μ = 1.5 it has no zero and there is no horizon; at the
+extremal value μ_e = 1.904119 the two horizons merge at x_e = 0.793658 (circle); at μ = 2.25, the mass of the
+non-extremal worksheet as distributed, the event horizon lies at x_h = 0.978684 (circle). Beyond x ≈ 1.5 the three
+curves join the Schwarzschild function 1 − 1/x. Panel (b) shows, for the same μ = 2.25 and ℓ = 2, the potentials M²U of
+the scalar (s = 0), electromagnetic (s = 1) and vector-type gravitational (s = 2) perturbations outside the event
+horizon; they peak at 0.2471, 0.2222 and 0.1513, between x = 1.47 and x = 1.64.
 
-Batic, D., Dutykh, D. *Quasinormal modes in noncommutative Schwarzschild black
-holes: a spectral analysis.* **Eur. Phys. J. C 84**, 622 (2024).
+noncommschwarzschild holds the Maple and MATLAB material of a study of the quasinormal modes of the Schwarzschild black
+hole inspired by noncommutative geometry, whose point mass is smeared into a Gaussian distribution of width √θ, which
+replaces the central singularity by a regular de Sitter core. It computes the frequencies at which massless scalar
+(s = 0), electromagnetic (s = 1) and vector-type gravitational (s = 2) perturbations ring and decay, for the
+non-extremal black hole and for the extremal one. Two Maple worksheets assemble, at 200 digits, the matrices of a
+Chebyshev collocation of the compactified radial equation, whose quasinormal boundary conditions are built into a
+factorisation of the solution; a MATLAB script solves the resulting quadratic eigenvalue problem with `polyeig` and
+draws the spectrum. Two more worksheets verify the analytical steps of the article by Davide Batic and Denys Dutykh in
+the European Physical Journal C (2024), cited below.
 
-* Journal (open access): https://link.springer.com/article/10.1140/epjc/s10052-024-12981-6
-* DOI: https://doi.org/10.1140/epjc/s10052-024-12981-6
-* Preprint: https://arxiv.org/abs/2406.03353
-* Repository: https://github.com/dutykh/noncommschwarzschild
+## The problem
 
-## QNMs Hall of Fame
+The line element is ds² = −f dt² + dr²/f + r² dΩ², with, in the rescaled radius x = r/(2M) and the rescaled mass
+μ = M/√θ (θ being the noncommutativity parameter, an area),
 
-**https://qnms.denys-dutykh.com/**
+```text
+f(x) = 1 − erf(μx)/x + (2μ/√π) e^(−μ²x²).
+```
 
-The present repository is one instalment of a longer programme. A perturbed
-black hole rings, and the frequencies at which it does so are fixed by the
-geometry alone: they are, in the words of the portal, the *celestial music* of
-the spacetime. Computing that spectrum accurately, for geometries where no
-closed form exists, is the common thread of the series.
+Below the extremal mass μ_e = 1.904119076 the function f has no zero and the geometry has no horizon; at μ_e the two
+horizons merge at x_e = 0.7936575898; above it there are two, and the codes work with the outer one, the event horizon
+x_h. With the time dependence e^(−iωt) and spherical harmonics of degree ℓ ⩾ s, each perturbation obeys
 
-The *Quasi-Normal Modes Hall of Fame* is the portal of the QNM Research Group at
-Khalifa University of Science and Technology, led by Dr. Davide Batic and
-Dr. Denys Dutykh. It gathers the whole series in one place, each manuscript
-listed with its journal version, its arXiv preprint and its companion code
-repository, so that any result of the group can be read and rerun from a single
-page. Alongside the noncommutative Schwarzschild black hole treated here, the
-catalogue covers quantum-corrected black holes (Kazakov–Solodukhin,
-Bonanno–Reuter), Planck stars, Lee–Wick black holes, and Morris–Thorne,
-noncommutative and phantom wormholes, together with the collaborators who
-contributed to them.
+```text
+f d/dr( f dψ/dr ) + [ ω² − U(r) ] ψ = 0,        U(r) = f(r) [ ε f′(r)/r + ℓ(ℓ + 1)/r² ],        ε = 1 − s²,
+```
 
-Readers who arrived here for the spectral method rather than for this particular
-spacetime will find the same machinery applied across all of those geometries,
-and are warmly invited to browse it.
+with ψ ingoing at the event horizon and outgoing at infinity; the dimensionless frequency is Ω = Mω, and Im Ω < 0 for
+a damped mode. For large μ, f tends to 1 − 1/x and the frequencies to those of the Schwarzschild black hole, which is
+the test of the method in the article. The map y = 1 − 2x_h/x (x_e in the extremal case) sends the event horizon to
+y = −1 and infinity to y = +1; once the behaviour at both ends has been factored out (with an auxiliary function η(y)
+at the double horizon of the extremal case), the regular part is expanded in n Chebyshev polynomials and the equation
+is collocated at the n roots y_i = cos((2i − 1)π/(2n)), which gives
 
-## Authors
+```text
+( M0 + i Ω M1 + Ω² M2 ) a = 0
+```
 
-* Dr. Davide Batic, Mathematics Department, Khalifa University of Science and
-  Technology, Abu Dhabi, UAE
-* Dr. Denys Dutykh, Mathematics Department, Khalifa University of Science and
-  Technology, Abu Dhabi, UAE
+with three real n × n matrices. The worksheets export `M1` without the factor i, which the MATLAB script applies when
+it solves the problem as `polyeig(M0, 1i*M1, M2)`. The derivations, the singularities of the coefficients at y = ±1
+and their limits are in the article and in the supplemental worksheets.
 
-## Method in brief
+## Quick start
 
-The radial perturbation equation for a spin-`s` field on a noncommutative
-Schwarzschild background is mapped onto the interval `y` in `[-1, 1]` and recast
-as a quadratic eigenvalue problem in the frequency `omega`,
+The assembly worksheets write their matrices into `data/`, a path relative to the current folder of Maple
+(`currentdir()`), which must therefore be the folder of the repository, where `data/` must exist. In a terminal:
 
-    (M0 + i*omega*M1 + omega^2*M2) a = 0,
+```bash
+git clone https://github.com/dutykh/noncommschwarzschild.git
+cd noncommschwarzschild
+mkdir -p data
+```
 
-where `a` collects the coefficients of a truncated Chebyshev expansion of the
-perturbation. Maple assembles the three matrices `M0`, `M1`, `M2` in extended
-precision (`Digits := 200`) at the Chebyshev roots collocation points (extrema
-points are available as a commented alternative), and Matlab solves the
-resulting polynomial eigenvalue problem with `polyeig`.
+Then open `QNMsNonExtreme.mw` (or `QNMsExtreme.mw`) in Maple, set at its top the spin `s` (0, 1 or 2), the multipole
+`L` and, in the non-extremal worksheet, the rescaled mass `mu` (2.25 as distributed); the number of Chebyshev modes is
+`n` (150 as distributed) and the working precision `Digits := 200`. The non-extremal worksheet finds the event horizon
+by `fsolve` from x = 1, the extremal one solves f = 0 and f′ = 0 for x_e and μ_e (in the square 0 ⩽ x, μ ⩽ 3).
+Executing the whole worksheet assembles the matrices, the expensive part of the computation, and writes
+`data/M0.mat`, `data/M1.mat` and `data/M2.mat` in the ASCII format of MATLAB. The commented line beside the
+collocation points switches from the Chebyshev roots to the Chebyshev extrema. Then, in MATLAB, from the folder of the
+repository:
 
-Two regimes are treated separately, since the horizon structure and the
-associated boundary behaviour differ:
+```matlab
+findeigs
+```
 
-* **non-extreme case**: the dimensionless mass `mu` is prescribed (`mu = 2.25`
-  in the file as distributed) and the horizon radius `xh` is obtained by solving
-  `f(xh) = 0`;
-* **extreme case**: `mu` and the degenerate horizon radius `xe` are obtained
-  simultaneously from `f = 0` and `df/dx = 0`.
+The script reads the three matrices with `readmatrix`, solves `polyeig(M0, 1i*M1, M2)` and draws the eigenvalues in the
+plane of Re ω and Im ω. The eigenvalues mix the quasinormal frequencies with artefacts of the truncation: the
+frequencies are those that stay in place when the computation is repeated with another n, the matrices of each n being
+kept under other names since the file names do not carry it. The article overlaps n = 100, 150 and 200 and solves the
+problem in multiprecision, with 200 digits, through the Advanpix Multiprecision Computing Toolbox, whereas
+`readmatrix` rounds the 200 digits of the files to double precision; with that toolbox the matrices are read by
+`mp.read` and `1i` becomes `mp('1i')`, as in the drivers of the later repositories of this series.
 
-## Repository contents
+## Contents
 
-| File | Role |
-| --- | --- |
-| `QNMsNonExtreme.mw` | Maple worksheet assembling `M0`, `M1`, `M2` for the non-extreme black hole and exporting them in ASCII Matlab format |
-| `QNMsExtreme.mw` | Same assembly for the extreme (degenerate horizon) case |
-| `NONEXTREME CASE-SUPPLEMENTAL MATERIAL.mw` | Maple verification of the analytical steps of the paper in the non-extreme case: coefficient functions, boundary limits, and the reduction leading to the matrix pencil |
-| `EXTREME CASE-SUPPLEMENTAL MATERIAL.mw` | Corresponding symbolic verification for the extreme case |
-| `findeigs.m` | Matlab driver: reads the exported matrices, calls `polyeig`, and plots the QNM spectrum in the complex `omega` plane |
-| `LICENSE` | GNU Lesser General Public License, version 2.1 |
+| File | Content |
+|---|---|
+| `QNMsNonExtreme.mw` | Maple worksheet assembling `M0`, `M1` and `M2` for the non-extremal black hole and writing them to `data/` |
+| `QNMsExtreme.mw` | the same for the extremal black hole, with its double horizon |
+| `NONEXTREME CASE-SUPPLEMENTAL MATERIAL.mw` | Maple worksheet verifying the analytical steps of the article in the non-extremal case: coefficient functions, limits at the ends of the interval, the reduction to the matrix problem |
+| `EXTREME CASE-SUPPLEMENTAL MATERIAL.mw` | the same verification in the extremal case |
+| `findeigs.m` | the MATLAB script that solves the eigenvalue problem and draws the spectrum |
+| `docs/figures/` | the script `plot_readme_figure.py` that draws the figure of this page from f and from the potential, with the style file beside it |
 
-## Software requirements
+## Requirements
 
-* Maple (TM), for the worksheets. Only `LinearAlgebra` is used beyond the
-  standard library.
-* Matlab (TM), for `findeigs.m`. `readmatrix` and `polyeig` are used, so a
-  release of R2019a or later is convenient.
+Maple 2022.1 or later, in which the worksheets are saved; they use only `LinearAlgebra` beyond the standard library.
+MATLAB R2019a or later for `readmatrix` and `polyeig`, and, to reproduce the multiprecision computations of the
+article, the Advanpix Multiprecision Computing Toolbox (a commercial toolbox). The figure of this page needs Python 3
+with NumPy, SciPy and Matplotlib, and is redrawn from `docs/figures/` by `python3 plot_readme_figure.py`.
 
-## How to reproduce a spectrum
+## How to cite
 
-1. Create a `data` subdirectory in the repository root. The Maple worksheets
-   write into it and do not create it themselves:
+If you use this code, please cite the article:
 
-       mkdir data
+D. Batic and D. Dutykh, Quasinormal modes in noncommutative Schwarzschild black holes: a spectral analysis, The
+European Physical Journal C 84, 622 (2024).
 
-2. Open `QNMsNonExtreme.mw` (or `QNMsExtreme.mw`) in Maple. Adjust the physical
-   parameters at the top if needed: the spin `s` (0, 1 or 2), the angular
-   momentum `L`, and, in the non-extreme worksheet, the dimensionless mass `mu`.
-   The number of Chebyshev modes is set by `n` (150 by default), which fixes the
-   size of the matrices.
+https://doi.org/10.1140/epjc/s10052-024-12981-6
 
-3. Execute the whole worksheet. The assembly loop runs at 200 significant
-   digits and is the expensive part of the computation; expect it to take a
-   while for `n = 150`. On completion the worksheet writes `data/M0.mat`,
-   `data/M1.mat` and `data/M2.mat` as ASCII files.
+```bibtex
+@article{Batic2024a,
+  author = {Batic, Davide and Dutykh, Denys},
+  title = {Quasinormal Modes in Noncommutative {{Schwarzschild}} Black Holes: A Spectral Analysis},
+  journal = {The European Physical Journal C},
+  year = 2024,
+  month = jun,
+  volume = {84},
+  number = {6},
+  pages = {622},
+  doi = {10.1140/epjc/s10052-024-12981-6},
+  eprint = {2406.03353},
+  archiveprefix = {arXiv}
+}
+```
 
-4. Run `findeigs.m` in Matlab from the repository root. It solves
+The button "Cite this repository" in the right-hand column of this page gives the same reference, read from
+`CITATION.cff`. The article is open access, and a free copy is also on arXiv:
 
-       polyeig(M0, 1i*M1, M2)
+https://arxiv.org/abs/2406.03353
 
-   and plots the computed frequencies in the complex plane. The physical QNMs
-   are the converged eigenvalues; the remainder of the computed spectrum is
-   discretization noise, which is identified by repeating the computation at a
-   different resolution `n` and retaining only the frequencies that are stable.
+A later study treats another noncommutative deformation of the Schwarzschild black hole, built with the Seiberg–Witten
+map at second order in the noncommutativity, and computes its quasinormal modes by eight methods; its codes and data are
+in the repository
+
+https://github.com/dutykh/noncommutative-schwarzschild-qnms
 
 ## Licence
 
-The contents of this repository are distributed under the GNU Lesser General
-Public License, version 2.1. See `LICENSE` for the full text.
+GNU Lesser General Public License, version 2.1 (see `LICENSE`).
 
-## Acknowledgement
+## Authors
 
-Please acknowledge this work by citing the reference above if you use these
-codes or derive material from them.
+Davide Batic and Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi). The
+article is listed, with the other studies of quasinormal modes of the same group, in the
+[Quasi-Normal Modes Hall of Fame](https://qnms.denys-dutykh.com/).
+
+https://www.denys-dutykh.com/

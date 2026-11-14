@@ -1,0 +1,53 @@
+# Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, UAE)
+cff-version: 1.2.0
+message: "If you use this code, please cite the article given under preferred-citation."
+title: "noncommschwarzschild: quasinormal modes of noncommutative geometry-inspired Schwarzschild black holes"
+type: software
+authors:
+  - family-names: Batic
+    given-names: Davide
+    affiliation: "Khalifa University of Science and Technology"
+    orcid: "https://orcid.org/0000-0002-7619-4900"
+  - family-names: Dutykh
+    given-names: Denys
+    affiliation: "Khalifa University of Science and Technology"
+    orcid: "https://orcid.org/0000-0001-5247-2788"
+repository-code: "https://github.com/dutykh/noncommschwarzschild"
+license: LGPL-2.1-only
+version: 1.0.1
+date-released: "2026-11-14"
+keywords:
+  - general-relativity
+  - black-holes
+  - schwarzschild-black-hole
+  - quasinormal-modes
+  - noncommutative-geometry
+  - noncommutative-gravity
+  - spectral-methods
+  - chebyshev-polynomials
+  - maple
+  - matlab
+abstract: >-
+  Maple worksheets and a MATLAB script for the quasinormal modes of scalar, electromagnetic and vector-type
+  gravitational perturbations of the noncommutative geometry-inspired Schwarzschild black hole, non-extremal and
+  extremal. The radial equation is compactified, its quasinormal boundary conditions are built into a factorisation of
+  the solution, and a Chebyshev collocation at 200 digits gives a quadratic eigenvalue problem solved with polyeig.
+preferred-citation:
+  type: article
+  title: 'Quasinormal Modes in Noncommutative Schwarzschild Black Holes: A Spectral Analysis'
+  authors:
+  - family-names: Batic
+    given-names: Davide
+  - family-names: Dutykh
+    given-names: Denys
+  journal: The European Physical Journal C
+  volume: 84
+  issue: '6'
+  start: 622
+  year: 2024
+  month: 6
+  doi: 10.1140/epjc/s10052-024-12981-6
+  identifiers:
+  - type: url
+    value: https://arxiv.org/abs/2406.03353
+    description: arXiv preprint
