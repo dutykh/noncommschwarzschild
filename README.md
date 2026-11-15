@@ -104,6 +104,19 @@ MATLAB R2019a or later for `readmatrix` and `polyeig`, and, to reproduce the mul
 article, the Advanpix Multiprecision Computing Toolbox (a commercial toolbox). The figure of this page needs Python 3
 with NumPy, SciPy and Matplotlib, and is redrawn from `docs/figures/` by `python3 plot_readme_figure.py`.
 
+## A note on the article
+
+The sentence that follows equation (9) of the article gives ε = −1 for the massless scalar field (s = 0) and ε = 3 for
+the vector-type gravitational perturbations (s = 2). The relation ε = 1 − s² of equation (9) itself gives
+
+```text
+ε = 1   (s = 0, scalar),      ε = 0   (s = 1, electromagnetic),      ε = −3   (s = 2, vector-type gravitational),
+```
+
+the values for which the potential reduces to the familiar ones of the Schwarzschild black hole. The worksheets
+`QNMsNonExtreme.mw` and `QNMsExtreme.mw` set `e := 1 - s^2`, so that the computations and the results of the article
+are not affected.
+
 ## How to cite
 
 If you use this code, please cite the article:
